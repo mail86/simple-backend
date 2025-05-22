@@ -1,0 +1,196 @@
+:root {
+    --bg-light: #ffffff;
+    --text-light: #343a40;
+    --bg-dark: #1a1a1a;
+    --text-dark: #f8f9fa;
+  }
+  
+  body {
+    font-family: "Segoe UI", sans-serif;
+    background: var(--bg-light);
+    color: var(--text-light);
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    transition: background 0.3s, color 0.3s;
+    background-image: url("Mm.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  body.dark-mode {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+    background-image: url("Mm-dark.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .container {
+    max-width: 720px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+    overflow: hidden;
+  }
+  
+  body.dark-mode .container {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  h1, h2, h3 {
+    color: inherit;
+    margin-top: 0;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 20px 0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: #000;
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    font-size: 16px;
+  }
+  
+  body.dark-mode input[type="text"] {
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: 1px solid #666;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 8px 0;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s, transform 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #000;
+  }
+  
+  li:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.02);
+  }
+  
+  body.dark-mode li {
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  body.dark-mode li:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .remove-btn {
+    background: transparent;
+    border: none;
+    color: #e03131;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .controls button {
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #228be6;
+    color: white;
+    cursor: pointer;
+    flex: 1 1 45%;
+    max-width: 180px;
+    transition: background 0.3s;
+  }
+  
+  .controls button:hover {
+    background-color: #1864ab;
+  }
+  
+  audio {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .playlist {
+    text-align: left;
+    margin-top: 30px;
+  }
+  
+  .toggle-mode {
+    margin-top: 10px;
+    background: none;
+    border: 1px solid #888;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 480px) {
+    h1, h2, h3 {
+      font-size: 18px;
+    }
+  
+    input[type="text"] {
+      font-size: 14px;
+    }
+  
+    .controls button {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+  
+    li {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+  }
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+  
+    .controls button {
+      flex: 1 1 100%; /* Supaya tombol penuh di layar kecil */
+      max-width: none;
+    }
+  }
+  input[type="text"], li {
+    word-break: break-word;
+  }
+  
+  
+  

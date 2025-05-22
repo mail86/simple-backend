@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pemutar Musik Pintar</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>🎶 Pemutar Musik Pintar</h1>
+
+    <button class="toggle-mode" onclick="toggleDarkMode()">🌗 Ganti Mode</button>
+
+    <input
+      type="text"
+      id="searchBox"
+      placeholder="🔍 Cari judul lagu..."
+      onkeyup="globalSearch()"
+    />
+
+    <h2>Pilih Artis</h2>
+    <ul>
+      <li onclick="showSongs('adaband')">🎤 Ada Band</li>
+      <li onclick="showSongs('dewa19')">🎸 Dewa 19</li>
+      <li onclick="showSongs('Zamrud')">🌿 Zamrud</li>
+      <li onclick="showSongs('Tipex')">🌿 Tipe x</li>
+      <li onclick="showSongs('Campuran')">🎸 Campuran</li>
+    </ul>
+
+    <div id="songList"></div>
+
+    <div class="controls">
+      <button onclick="shufflePlaylist()">🔀 Shuffle</button>
+      <button onclick="skipSong()">⏭️ Skip</button>
+    </div>
+
+    <div class="playlist">
+      <h3>🎧 Antrian Lagu:</h3>
+      <ul id="playlistDisplay"></ul>
+    </div>
+
+    <audio id="audioPlayer" controls></audio>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
