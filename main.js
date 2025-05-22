@@ -65,6 +65,15 @@ function showSongs(artistKey) {
   currentArtistSongs = songs[artistKey];
   renderSongList(currentArtistSongs);
 }
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+
+  const toggleButton = document.getElementById("modeToggle");
+  const isDark = document.body.classList.contains("dark-mode");
+
+  toggleButton.innerHTML = isDark ? "🌞 Mode Terang" : "🌗 Ganti Mode";
+}
+
 
 function renderSongList(songArray) {
   const songListDiv = document.getElementById("songList");
