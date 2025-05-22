@@ -46,6 +46,34 @@
   body.dark-mode .container {
     background: rgba(0, 0, 0, 0.3);
   }
+  .search-bar {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .search-bar input {
+    flex: 1;
+  }
+  
+  .search-bar button {
+    padding: 6px 12px;
+    font-size: 12px;
+    background-color: #228be6;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    max-height: 38px;
+    margin: 20px 0;
+  
+  }
+  
+  .search-bar button:hover {
+    background-color: greenyellow;
+  }
+  
   
   h1, h2, h3 {
     color: inherit;
@@ -191,7 +219,7 @@
   input[type="text"], li {
     word-break: break-word;
   }
-footer {
+  footer {
     text-align: center;
     margin-top: 30px;
     font-size: 14px;
@@ -202,6 +230,10 @@ footer {
   body.dark-mode footer {
     color: greenyellow; /* warna lebih terang untuk mode gelap */
   }
+  
+  
+  
+  
   
   
   
