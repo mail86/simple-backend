@@ -191,6 +191,17 @@
   input[type="text"], li {
     word-break: break-word;
   }
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: greenyellow; /* warna default untuk mode terang */
+    transition: color 0.3s;
+  }
+  
+  body.dark-mode footer {
+    color: greenyellow; /* warna lebih terang untuk mode gelap */
+  }
   
   
   
