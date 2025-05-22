@@ -71,7 +71,7 @@ function toggleDarkMode() {
   const toggleButton = document.getElementById("modeToggle");
   const isDark = document.body.classList.contains("dark-mode");
 
-  toggleButton.innerHTML = isDark ? "🌞 Mode Gelap" : "🌗 Ganti Mode";
+  toggleButton.innerHTML = isDark ? " Mode Gelap" : "🌗 Ganti Mode";
 }
 
 
