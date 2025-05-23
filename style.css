@@ -214,6 +214,14 @@ footer {
   left: 0;
   top: 0;
 }
+ @keyframes scroll-left {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
 
 @media (max-width: 768px) {
   .container {
