@@ -248,37 +248,5 @@ footer {
 input[type="text"], li {
   word-break: break-word;
 }
-.marquee {
-  position: relative;
-  height: 1.5em;
-  overflow: hidden;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: var(--accent);
-  font-size: 16px;
-  margin-top: 10px;
-}
-
-.marquee::after {
-  content: attr(data-text);
-  animation: scroll-left 10s linear infinite;
-  display: inline-block;
-  padding-left: 100%;
-  white-space: nowrap;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-@keyframes scroll-left {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
 
 
