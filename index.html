@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -10,7 +11,7 @@
   <div class="container">
     <h1>🎶 Pemutar Musik Pintar</h1>
 
-   <button id="modeToggle" class="toggle-mode" onclick="toggleDarkMode()">🌗 Ganti Mode</button>
+    <button id="modeToggle" class="toggle-mode" onclick="toggleDarkMode()">🌗 Ganti Mode</button>
 
 
     <div class="search-bar">
@@ -28,6 +29,8 @@
       <li onclick="showSongs('dewa19')">🎸 Dewa 19</li>
       <li onclick="showSongs('Zamrud')">🌿 Zamrud</li>
       <li onclick="showSongs('Tipex')">🌿 Tipe x</li>
+      <li onclick="showSongs('SheilaON7')">🌿 SheilaON7</li>
+      <li onclick="showSongs('sunda')">🌿 sunda</li>
       <li onclick="showSongs('Campuran')">🎸 Campuran</li>
     </ul>
 
@@ -44,7 +47,8 @@
     </div>
 
     <audio id="audioPlayer" controls></audio>
-     <div id="nowPlaying">🎵 Tidak ada lagu diputar</div>
+    <div id="nowPlaying" class="vertical-marquee marquee" data-text="🎵 Tidak ada lagu diputar"></div>
+
 
     <footer>
       &copy; 2024 Mailda Turohman. All rights reserved.
