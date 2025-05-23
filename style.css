@@ -190,44 +190,30 @@ footer {
   color: greenyellow;
   transition: color 0.3s;
 }
-
-/* 🎵 Marquee baru (horizontal & responsif) */
-nowPlayingContainer {
-  width: 100%;
-  overflow: hidden;
+.marquee {
   position: relative;
-  height: 30px;
+  height: 1.5em;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--accent);
+  font-size: 16px;
   margin-top: 10px;
 }
 
-nowPlayingText {
+.marquee::after {
+  content: attr(data-text);
+  animation: scroll-left 10s linear infinite;
   display: inline-block;
+  padding-left: 100%;
   white-space: nowrap;
   position: absolute;
-  will-change: transform;
-  animation: marquee 10s linear infinite;
-  color: greenyellow; 
-  font-weight: bold;
-  font-size: 16px;
-  left: 100%;
+  left: 0;
+  top: 0;
 }
-.marquee {
-  color: greenyellow;
-}
-.marquee::after {
-    content: attr(data-text);
-    display: block;
-    animation: scroll-up 5s linear infinite;
-}
-
- @keyframes scroll-up {
-    0% {
-      transform: translateY(100%);
-    }
-    100% {
-      transform: translateY(-100%);
-    }
-  }
 
 @media (max-width: 768px) {
   .container {
