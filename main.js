@@ -139,23 +139,36 @@ function playNext() {
 
   const next = playlist.shift();
   audioPlayer.src = next.src;
-  audioPlayer.play().catch(() => {
-    updateNowPlaying("⚠️ Gagal memutar lagu.");
-    playNext();
-  });
 
-  updateNowPlaying(`🎵 Sedang diputar: ${next.title}`);
+  // Coba putar audio dan tunggu hasilnya
+  audioPlayer.play()
+    .then(() => {
+      updateNowPlaying(`🎵 Sedang diputar: ${next.title}`);
+    })
+    .catch((error) => {
+      console.warn("Gagal memutar lagu:", error);
+      updateNowPlaying("⚠️ Gagal memutar lagu.");
+      playNext(); // coba lanjutkan lagu berikutnya
+    });
+
   savePlaylist();
   updatePlaylistDisplay();
 }
 
+
 function updateNowPlaying(text) {
   const nowPlaying = document.getElementById("nowPlaying");
+  
   nowPlaying.setAttribute("data-text", text);
+  nowPlaying.textContent = text; // tampilkan juga untuk non-CSS fallback
   nowPlaying.classList.remove("marquee");
+
+  // Paksa reflow untuk restart animasi marquee
   void nowPlaying.offsetWidth;
+
   nowPlaying.classList.add("marquee");
 }
+
 
 function skipSong() {
   audioPlayer.pause();
