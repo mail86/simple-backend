@@ -44,10 +44,28 @@ const songs = {
     { title: "Sakit Hati", src: "Tipe-x/Sakit Hati.mp3" },
     { title: "Salam Rindu", src: "Tipe-x/Salam Rindu.mp3" },
     { title: "Selamat Jalan", src: "Tipe-x/Selamat Jalan.mp3" },
-    {
-      title: "Tanda-tanda Patah hati",
-      src: "Tipe-x/Tanda Tanda Patah Hati.mp3",
-    },
+    { title: "Tanda-tanda Patah hati", src: "Tipe-x/Tanda Tanda Patah Hati.mp3" },
+  ],
+  SheilaON7: [
+    { title: "Betapa", src: "SheilaON7/Betapa.mp3" },
+    { title: "Bila Kau Tak Di Sampingku",      src: "SheilaON7/Bila Kau Tak Disampingku.mp3",    },
+    { title: "Buat Aku Tersenyum", src: "SheilaON7/Buat Aku Tersenyum.mp3" },
+    { title: "Dan", src: "SheilaON7/Dan.mp3" },
+    { title: "Kita", src: "SheilaON7/Kita.mp3" },
+    { title: "Pemuja Rahasia", src: "SheilaON7/Pemuja Rahasia.mp3" },
+    { title: "Rani", src: "SheilaON7/Rani.mp3" },
+    { title: "Seberapa Pantas", src: "SheilaON7/Seberapa Pantas.mp3" },
+    { title: "Sebuah Kisah Klasik", src: "SheilaON7/Sebuah Kisah Klasik.mp3" },
+    { title: "Sephia", src: "SheilaON7/Sephia.mp3" },
+  ],
+  sunda: [
+    { title: "Ditalipak", src: "sunda/Ditalipak.mp3" },
+    { title: "Eteh", src: "sunda/Eteh.mp3" },
+    { title: "Linu", src: "sunda/linu.mp3" },
+    { title: "Mumun", src: "sunda/Mumun.mp3" },
+    { title: "Panyakit Hate", src: "sunda/panyakit hate.mp3" },
+    { title: "Runtah", src: "sunda/Runtah.mp3" },
+    { title: "Teteh", src: "sunda/Teteh.mp3" },
   ],
   Campuran: [
     { title: "Ilusi Tak Bertepi", src: "Musik/ilusi Tak Bertepi.mp3" },
@@ -65,15 +83,13 @@ function showSongs(artistKey) {
   currentArtistSongs = songs[artistKey];
   renderSongList(currentArtistSongs);
 }
+
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
-
   const toggleButton = document.getElementById("modeToggle");
   const isDark = document.body.classList.contains("dark-mode");
-
   toggleButton.innerHTML = isDark ? " Mode Gelap" : "🌗 Ganti Mode";
 }
-
 
 function renderSongList(songArray) {
   const songListDiv = document.getElementById("songList");
@@ -88,6 +104,7 @@ function addToPlaylist(title, src) {
   playlist.push({ title, src });
   savePlaylist();
   updatePlaylistDisplay();
+
   if (audioPlayer.paused && !audioPlayer.src) {
     playNext();
   }
@@ -111,21 +128,29 @@ function updatePlaylistDisplay() {
 }
 
 function playNext() {
+  const nowPlaying = document.getElementById("nowPlaying");
+
   if (playlist.length > 0) {
     const next = playlist.shift();
     audioPlayer.src = next.src;
     audioPlayer.play();
-    document.getElementById("nowPlaying").textContent =
-      "🎵 Sedang Diputar: " + next.title;
+
+    updateNowPlaying(`🎵 Sedang diputar: ${next.title}`);
     savePlaylist();
     updatePlaylistDisplay();
   } else {
-    // Jangan kosongkan src, cukup pause
     audioPlayer.pause();
-    document.getElementById("nowPlaying").textContent = "🎵 Sedang Diputar: -";
+    updateNowPlaying("🎵 Tidak ada lagu diputar");
   }
 }
 
+function updateNowPlaying(text) {
+  const nowPlaying = document.getElementById("nowPlaying");
+  nowPlaying.setAttribute("data-text", text);
+  nowPlaying.classList.remove("marquee");
+  void nowPlaying.offsetWidth; // Paksa reflow
+  nowPlaying.classList.add("marquee");
+}
 
 function skipSong() {
   audioPlayer.pause();
@@ -163,7 +188,7 @@ function globalSearch() {
     return;
   }
 
-  let results = [];
+  const results = [];
 
   for (const artist in songs) {
     for (const song of songs[artist]) {
@@ -185,8 +210,12 @@ function globalSearch() {
     songListDiv.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  // 🔄 Kosongkan input pencarian
+  // Kosongkan input pencarian setelah cari
   searchBox.value = "";
 }
+
+// Event listener untuk memutar lagu berikutnya saat lagu selesai
 audioPlayer.addEventListener("ended", playNext);
 
+// Muat playlist dari localStorage saat halaman dibuka
+window.addEventListener("load", loadPlaylist);
