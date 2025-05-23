@@ -76,11 +76,10 @@ const songs = {
 const playlist = [];
 const audioPlayer = document.getElementById("audioPlayer");
 const playlistDisplay = document.getElementById("playlistDisplay");
-
 let currentArtistSongs = [];
 
 function showSongs(artistKey) {
-  currentArtistSongs = songs[artistKey];
+  currentArtistSongs = songs[artistKey] || [];
   renderSongList(currentArtistSongs);
 }
 
@@ -88,19 +87,23 @@ function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
   const toggleButton = document.getElementById("modeToggle");
   const isDark = document.body.classList.contains("dark-mode");
-  toggleButton.innerHTML = isDark ? " Mode Gelap" : "🌗 Ganti Mode";
+  toggleButton.innerHTML = isDark ? "🌙 Mode Gelap" : "🌗 Ganti Mode";
 }
 
 function renderSongList(songArray) {
   const songListDiv = document.getElementById("songList");
-  songListDiv.innerHTML = "<h3>Pilih Lagu:</h3><ul>";
-  songArray.forEach((song) => {
-    songListDiv.innerHTML += `<li onclick="addToPlaylist('${song.title}', '${song.src}')">${song.title}</li>`;
-  });
-  songListDiv.innerHTML += "</ul>";
+  if (!Array.isArray(songArray)) return;
+
+  songListDiv.innerHTML = "<h3>Pilih Lagu:</h3><ul>" +
+    songArray.map(song =>
+      `<li onclick="addToPlaylist('${song.title}', '${song.src}')">${song.title}</li>`
+    ).join("") +
+    "</ul>";
 }
 
 function addToPlaylist(title, src) {
+  if (!title || !src) return;
+
   playlist.push({ title, src });
   savePlaylist();
   updatePlaylistDisplay();
@@ -111,44 +114,46 @@ function addToPlaylist(title, src) {
 }
 
 function removeFromPlaylist(index) {
+  if (index < 0 || index >= playlist.length) return;
   playlist.splice(index, 1);
   savePlaylist();
   updatePlaylistDisplay();
 }
 
 function updatePlaylistDisplay() {
-  playlistDisplay.innerHTML = "";
-  playlist.forEach((song, index) => {
-    playlistDisplay.innerHTML += `
-      <li>
-        ${index + 1}. ${song.title}
-        <button class="remove-btn" onclick="removeFromPlaylist(${index})">❌</button>
-      </li>`;
-  });
+  playlistDisplay.innerHTML = playlist.map((song, index) =>
+    `<li>
+      ${index + 1}. ${song.title}
+      <button class="remove-btn" onclick="removeFromPlaylist(${index})">❌</button>
+    </li>`
+  ).join("");
 }
 
 function playNext() {
-  const nowPlaying = document.getElementById("nowPlaying");
-
-  if (playlist.length > 0) {
-    const next = playlist.shift();
-    audioPlayer.src = next.src;
-    audioPlayer.play();
-
-    updateNowPlaying(`🎵 Sedang diputar: ${next.title}`);
-    savePlaylist();
-    updatePlaylistDisplay();
-  } else {
+  if (playlist.length === 0) {
     audioPlayer.pause();
+    audioPlayer.src = "";
     updateNowPlaying("🎵 Tidak ada lagu diputar");
+    return;
   }
+
+  const next = playlist.shift();
+  audioPlayer.src = next.src;
+  audioPlayer.play().catch(() => {
+    updateNowPlaying("⚠️ Gagal memutar lagu.");
+    playNext();
+  });
+
+  updateNowPlaying(`🎵 Sedang diputar: ${next.title}`);
+  savePlaylist();
+  updatePlaylistDisplay();
 }
 
 function updateNowPlaying(text) {
   const nowPlaying = document.getElementById("nowPlaying");
   nowPlaying.setAttribute("data-text", text);
   nowPlaying.classList.remove("marquee");
-  void nowPlaying.offsetWidth; // Paksa reflow
+  void nowPlaying.offsetWidth;
   nowPlaying.classList.add("marquee");
 }
 
@@ -167,14 +172,22 @@ function shufflePlaylist() {
 }
 
 function savePlaylist() {
-  localStorage.setItem("playlist", JSON.stringify(playlist));
+  try {
+    localStorage.setItem("playlist", JSON.stringify(playlist));
+  } catch (err) {
+    console.error("Gagal menyimpan playlist:", err);
+  }
 }
 
 function loadPlaylist() {
-  const saved = JSON.parse(localStorage.getItem("playlist"));
-  if (saved && Array.isArray(saved)) {
-    playlist.push(...saved);
-    updatePlaylistDisplay();
+  try {
+    const saved = JSON.parse(localStorage.getItem("playlist"));
+    if (Array.isArray(saved)) {
+      playlist.push(...saved);
+      updatePlaylistDisplay();
+    }
+  } catch (err) {
+    console.error("Gagal memuat playlist:", err);
   }
 }
 
@@ -183,7 +196,7 @@ function globalSearch() {
   const keyword = searchBox.value.toLowerCase().trim();
   const songListDiv = document.getElementById("songList");
 
-  if (keyword === "") {
+  if (!keyword) {
     songListDiv.innerHTML = "";
     return;
   }
@@ -191,31 +204,26 @@ function globalSearch() {
   const results = [];
 
   for (const artist in songs) {
-    for (const song of songs[artist]) {
-      if (song.title.toLowerCase().startsWith(keyword)) {
-        results.push(song);
-      }
-    }
+    results.push(...songs[artist].filter(song =>
+      song.title.toLowerCase().startsWith(keyword)
+    ));
   }
 
   if (results.length > 0) {
-    songListDiv.innerHTML = "<h3>Hasil Pencarian:</h3><ul>";
-    results.forEach((song) => {
-      songListDiv.innerHTML += `<li onclick="addToPlaylist('${song.title}', '${song.src}')">${song.title}</li>`;
-    });
-    songListDiv.innerHTML += "</ul>";
-    songListDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+    songListDiv.innerHTML = "<h3>Hasil Pencarian:</h3><ul>" +
+      results.map(song =>
+        `<li onclick="addToPlaylist('${song.title}', '${song.src}')">${song.title}</li>`
+      ).join("") +
+      "</ul>";
   } else {
-    songListDiv.innerHTML = "<p>Tidak ada lagu ditemukan.</p>";
-    songListDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+    songListDiv.innerHTML = "<p>🔍 Tidak ada lagu ditemukan.</p>";
   }
 
-  // Kosongkan input pencarian setelah cari
+  songListDiv.scrollIntoView({ behavior: "smooth", block: "start" });
   searchBox.value = "";
 }
 
-// Event listener untuk memutar lagu berikutnya saat lagu selesai
+// Event listeners
 audioPlayer.addEventListener("ended", playNext);
-
-// Muat playlist dari localStorage saat halaman dibuka
 window.addEventListener("load", loadPlaylist);
+
