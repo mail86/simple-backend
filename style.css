@@ -221,15 +221,14 @@ footer {
     animation: scroll-up 5s linear infinite;
 }
 
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
+ @keyframes scroll-up {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
   }
-  100% {
-    transform: translateX(-100%);
-  }
-}
 
 @media (max-width: 768px) {
   .container {
