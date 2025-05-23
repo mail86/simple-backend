@@ -192,7 +192,7 @@ footer {
 }
 
 /* 🎵 Marquee baru (horizontal & responsif) */
-#nowPlayingContainer {
+nowPlayingContainer {
   width: 100%;
   overflow: hidden;
   position: relative;
