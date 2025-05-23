@@ -155,17 +155,11 @@ function playNext() {
   updatePlaylistDisplay();
 }
 
-
 function updateNowPlaying(text) {
   const nowPlaying = document.getElementById("nowPlaying");
-  
   nowPlaying.setAttribute("data-text", text);
-  nowPlaying.textContent = text; // tampilkan juga untuk non-CSS fallback
   nowPlaying.classList.remove("marquee");
-
-  // Paksa reflow untuk restart animasi marquee
-  void nowPlaying.offsetWidth;
-
+  void nowPlaying.offsetWidth; // force reflow
   nowPlaying.classList.add("marquee");
 }
 
