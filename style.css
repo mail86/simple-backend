@@ -230,6 +230,31 @@
   body.dark-mode footer {
     color: greenyellow; /* warna lebih terang untuk mode gelap */
   }
+.vertical-marquee {
+    position: relative;
+    height: 1.5em;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: greenyellow;
+  }
+  .vertical-marquee::after {
+    content: attr(data-text);
+    display: block;
+    animation: scroll-up 5s linear infinite;
+  }
+  
+  @keyframes scroll-up {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+  
   
   
   
