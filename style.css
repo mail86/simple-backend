@@ -215,7 +215,6 @@ footer {
   color: greenyellow;
 }
 .marquee::after {
-  .vertical-marquee::after {
     content: attr(data-text);
     display: block;
     animation: scroll-up 5s linear infinite;
