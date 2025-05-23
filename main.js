@@ -115,12 +115,17 @@ function playNext() {
     const next = playlist.shift();
     audioPlayer.src = next.src;
     audioPlayer.play();
+    document.getElementById("nowPlaying").textContent =
+      "🎵 Sedang Diputar: " + next.title;
     savePlaylist();
     updatePlaylistDisplay();
   } else {
-    audioPlayer.src = "";
+    // Jangan kosongkan src, cukup pause
+    audioPlayer.pause();
+    document.getElementById("nowPlaying").textContent = "🎵 Sedang Diputar: -";
   }
 }
+
 
 function skipSong() {
   audioPlayer.pause();
@@ -183,3 +188,5 @@ function globalSearch() {
   // 🔄 Kosongkan input pencarian
   searchBox.value = "";
 }
+audioPlayer.addEventListener("ended", playNext);
+
