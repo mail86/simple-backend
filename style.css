@@ -200,7 +200,7 @@ footer {
   margin-top: 10px;
 }
 
-#nowPlayingText {
+nowPlayingText {
   display: inline-block;
   white-space: nowrap;
   position: absolute;
