@@ -187,7 +187,7 @@ footer {
   text-align: center;
   margin-top: 30px;
   font-size: 14px;
-  color: var(--accent);
+  color: greenyellow;
   transition: color 0.3s;
 }
 
@@ -206,7 +206,7 @@ footer {
   position: absolute;
   will-change: transform;
   animation: marquee 10s linear infinite;
-  color: var(--accent); 
+  color: greenyellow; 
   font-weight: bold;
   font-size: 16px;
   left: 100%;
