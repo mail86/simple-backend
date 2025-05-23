@@ -190,29 +190,21 @@ footer {
   color: greenyellow;
   transition: color 0.3s;
 }
- .vertical-marquee {
-    position: relative;
-    height: 1.5em;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: greenyellow;
-  }
-  .vertical-marquee::after {
-    content: attr(data-text);
-    display: block;
-    animation: scroll-up 5s linear infinite;
-  }
- @keyframes scroll-up {
-    0% {
-      transform: translateY(100%);
+ .marquee {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      font-weight: bold;
+      color: var(--accent);
+      font-size: 16px;
+      margin-top: 10px;
+      animation: scroll-left 10s linear infinite;
     }
-    100% {
-      transform: translateY(-100%);
+
+    @keyframes scroll-left {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
-  }
 
 @media (max-width: 768px) {
   .container {
