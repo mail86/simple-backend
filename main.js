@@ -48,7 +48,7 @@ const songs = {
   ],
   Sheilaon7: [
     { title: "Betapa", src: "SheilaON7/Betapa.mp3" },
-    { title: "Bila Kau Tak Di Sampingku",      src: "SheilaON7/Bila Kau Tak Disampingku.mp3",    },
+    { title: "Bila Kau Tak Di Sampingku", src: "sheila on7/Bila Kau Tak Disampingku.mp3",    },
     { title: "Buat Aku Tersenyum", src: "SheilaON7/Buat Aku Tersenyum.mp3" },
     { title: "Dan", src: "SheilaON7/Dan.mp3" },
     { title: "Kita", src: "SheilaON7/Kita.mp3" },
