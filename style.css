@@ -200,7 +200,7 @@ footer {
   margin-top: 10px;
 }
 
-#nowPlayingtext {
+#nowPlayingText {
   display: inline-block;
   white-space: nowrap;
   position: absolute;
@@ -211,8 +211,14 @@ footer {
   font-size: 16px;
   left: 100%;
 }
-.data-text {
+.marquee {
   color: greenyellow;
+}
+.marquee::after {
+  .vertical-marquee::after {
+    content: attr(data-text);
+    display: block;
+    animation: scroll-up 5s linear infinite;
 }
 
 
