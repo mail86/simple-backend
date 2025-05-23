@@ -46,7 +46,7 @@ const songs = {
     { title: "Selamat Jalan", src: "Tipe-x/Selamat Jalan.mp3" },
     { title: "Tanda-tanda Patah hati", src: "Tipe-x/Tanda Tanda Patah Hati.mp3" },
   ],
-  SheilaON7: [
+  Sheilaon7: [
     { title: "Betapa", src: "SheilaON7/Betapa.mp3" },
     { title: "Bila Kau Tak Di Sampingku",      src: "SheilaON7/Bila Kau Tak Disampingku.mp3",    },
     { title: "Buat Aku Tersenyum", src: "SheilaON7/Buat Aku Tersenyum.mp3" },
