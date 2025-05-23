@@ -69,11 +69,11 @@ h1, h2, h3 {
   color: white;
   cursor: pointer;
   max-height: 38px;
+  margin: 20px 0;
 }
 
 .search-bar button:hover {
-  background-color: var(--accent);
-  color: #000;
+  background-color: greenyellow;
 }
 
 input[type="text"] {
