@@ -128,31 +128,21 @@ function updatePlaylistDisplay() {
     </li>`
   ).join("");
 }
-
 function playNext() {
-  if (playlist.length === 0) {
+  const nowPlaying = document.getElementById("nowPlaying");
+
+  if (playlist.length > 0) {
+    const next = playlist.shift();
+    audioPlayer.src = next.src;
+    audioPlayer.play();
+
+    updateNowPlaying(`🎵 Sedang diputar: ${next.title}`);
+    savePlaylist();
+    updatePlaylistDisplay();
+  } else {
     audioPlayer.pause();
-    audioPlayer.src = "";
     updateNowPlaying("🎵 Tidak ada lagu diputar");
-    return;
   }
-
-  const next = playlist.shift();
-  audioPlayer.src = next.src;
-
-  // Coba putar audio dan tunggu hasilnya
-  audioPlayer.play()
-    .then(() => {
-      updateNowPlaying(`🎵 Sedang diputar: ${next.title}`);
-    })
-    .catch((error) => {
-      console.warn("Gagal memutar lagu:", error);
-      updateNowPlaying("⚠️ Gagal memutar lagu.");
-      playNext(); // coba lanjutkan lagu berikutnya
-    });
-
-  savePlaylist();
-  updatePlaylistDisplay();
 }
 
 function updateNowPlaying(text) {
