@@ -128,30 +128,24 @@ function updatePlaylistDisplay() {
     </li>`
   ).join("");
 }
-function playNext() {
-  const nowPlaying = document.getElementById("nowPlaying");
+ function playNext() {
+      if (playlist.length > 0) {
+        const next = playlist.shift();
+        audioPlayer.src = next.src;
+        audioPlayer.play();
+        updateNowPlaying(`🎵 Sedang diputar: ${next.title}`);
+        savePlaylist();
+        updatePlaylistDisplay();
+      } else {
+        audioPlayer.pause();
+        updateNowPlaying("🎵 Tidak ada lagu diputar");
+      }
+    }
 
-  if (playlist.length > 0) {
-    const next = playlist.shift();
-    audioPlayer.src = next.src;
-    audioPlayer.play();
-
-    updateNowPlaying(`🎵 Sedang diputar: ${next.title}`);
-    savePlaylist();
-    updatePlaylistDisplay();
-  } else {
-    audioPlayer.pause();
-    updateNowPlaying("🎵 Tidak ada lagu diputar");
-  }
-}
-
-function updateNowPlaying(text) {
-  const nowPlaying = document.getElementById("nowPlaying");
-  nowPlaying.setAttribute("data-text", text);
-  nowPlaying.classList.remove("marquee");
-  void nowPlaying.offsetWidth; // force reflow
-  nowPlaying.classList.add("marquee");
-}
+    function updateNowPlaying(text) {
+      const nowPlaying = document.getElementById("nowPlaying");
+      nowPlaying.textContent = text;
+    }
 
 
 function skipSong() {
