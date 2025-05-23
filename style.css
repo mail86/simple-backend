@@ -200,7 +200,7 @@ footer {
   margin-top: 10px;
 }
 
-#nowPlayingText {
+#nowPlayingtext {
   display: inline-block;
   white-space: nowrap;
   position: absolute;
@@ -211,17 +211,7 @@ footer {
   font-size: 16px;
   left: 100%;
 }
-#nowPlayingdata-text {
-  display: inline-block;
-  white-space: nowrap;
-  position: absolute;
-  will-change: transform;
-  animation: marquee 10s linear infinite;
-  color: greenyellow; 
-  font-weight: bold;
-  font-size: 16px;
-  left: 100%;
-}
+
 
 @keyframes marquee {
   0% {
