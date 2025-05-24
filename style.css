@@ -233,5 +233,32 @@ footer {
 input[type="text"], li {
   word-break: break-word;
 }
+.close-songlist-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff6b6b;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: inline-block;
+  }
+  
+  .close-songlist-btn :hover {
+    background-color: greenyellow;
+  }
+  
+  body.dark-mode .close-songlist-btn {
+    background-color: white;
+    color: red;
+  }
+  
+  body.dark-mode .close-songlist-btn:hover {
+    background-color: greenyellow;
+  }
+  
+  
+
 
 
