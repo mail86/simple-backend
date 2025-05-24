@@ -233,9 +233,6 @@ footer {
 input[type="text"], li {
   word-break: break-word;
 }
-#closeSongListButton :hover {
-    background-color: red;
-}
 
 .close-songlist-btn {
     padding: 10px 16px;
@@ -250,7 +247,7 @@ input[type="text"], li {
   }
   
   .close-songlist-btn :hover {
-    background-color: greenyellow;
+    background-color: yellow;
   }
   
   body.dark-mode .close-songlist-btn {
