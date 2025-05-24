@@ -80,25 +80,37 @@ let currentArtistSongs = [];
 
 function showSongsByArtist(artist) {
   const songListDiv = document.getElementById("songList");
-  const closeBtn = document.getElementById("closeSongListButton");
-  const songItems = songs[artist]
-    .map((song) => {
-      return `<li onclick="addToPlaylist('${song.title}', '${song.src}')">${song.title}</li>`;
-    })
-    .join("");
+  songListDiv.innerHTML = "";
 
-  songListDiv.innerHTML = `
-    <h3>${artist}</h3>
-    <ul>${songItems}</ul>
-  `;
+  const header = document.createElement("h3");
+  header.textContent = artist;
+  songListDiv.appendChild(header);
 
-  // Tampilkan tombol tutup daftar lagu
-  if (closeBtn) {
-    closeBtn.style.display = "inline-block";
+  const ul = document.createElement("ul");
+  songs[artist].forEach((song) => {
+    const li = document.createElement("li");
+    li.innerText = song.title;
+    li.onclick = () => addToPlaylist(song.title, song.src);
+    ul.appendChild(li);
+  });
+  songListDiv.appendChild(ul);
+
+  // Tambahkan tombol tutup jika belum ada
+  if (!document.getElementById("closeSongListButton")) {
+    const closeBtn = document.createElement("button");
+    closeBtn.textContent = "Tutup Daftar Lagu";
+    closeBtn.id = "closeSongListButton";
+    closeBtn.className = "close-songlist-btn";
+    closeBtn.onclick = hideSongList;
+    songListDiv.appendChild(closeBtn);
+  } else {
+    // Jika sudah ada, pastikan tampil
+    document.getElementById("closeSongListButton").style.display = "inline-block";
   }
 
   songListDiv.scrollIntoView({ behavior: "smooth", block: "start" });
 }
+
 
 
 
