@@ -78,10 +78,29 @@ const audioPlayer = document.getElementById("audioPlayer");
 const playlistDisplay = document.getElementById("playlistDisplay");
 let currentArtistSongs = [];
 
-function showSongs(artistKey) {
-  currentArtistSongs = songs[artistKey] || [];
-  renderSongList(currentArtistSongs);
+function showSongsByArtist(artist) {
+  const songListDiv = document.getElementById("songList");
+  const closeBtn = document.getElementById("closeSongListButton");
+  const songItems = songs[artist]
+    .map((song) => {
+      return `<li onclick="addToPlaylist('${song.title}', '${song.src}')">${song.title}</li>`;
+    })
+    .join("");
+
+  songListDiv.innerHTML = `
+    <h3>${artist}</h3>
+    <ul>${songItems}</ul>
+  `;
+
+  // Tampilkan tombol tutup daftar lagu
+  if (closeBtn) {
+    closeBtn.style.display = "inline-block";
+  }
+
+  songListDiv.scrollIntoView({ behavior: "smooth", block: "start" });
 }
+
+
 
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
