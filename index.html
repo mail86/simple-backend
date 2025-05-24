@@ -34,7 +34,12 @@
       <li onclick="showSongs('Campuran')">🎸 Campuran</li>
     </ul>
 
-    <div id="songList"></div>
+    <div id="songListContainer">
+      <div id="songList"></div>
+      <button id="closeSongListButton" class="close-songlist-btn" onclick="hideSongList()" style="display:none">
+        Tutup Daftar Lagu
+      </button>
+    </div>
 
     <div class="controls">
       <button onclick="shufflePlaylist()">🔀 Shuffle</button>
