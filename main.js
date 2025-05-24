@@ -82,14 +82,22 @@ function showSongsByArtist(artist) {
   const songListDiv = document.getElementById("songList");
   songListDiv.innerHTML = "";
 
+  // Cek apakah data lagu tersedia
+  if (!songs[artist] || songs[artist].length === 0) {
+    songListDiv.innerHTML = `<p>Tidak ada lagu untuk artis: ${artist}</p>`;
+    return;
+  }
+
+  // Tambahkan judul artis
   const header = document.createElement("h3");
   header.textContent = artist;
   songListDiv.appendChild(header);
 
+  // Tambahkan daftar lagu
   const ul = document.createElement("ul");
   songs[artist].forEach((song) => {
     const li = document.createElement("li");
-    li.innerText = song.title;
+    li.textContent = song.title;
     li.onclick = () => addToPlaylist(song.title, song.src);
     ul.appendChild(li);
   });
@@ -104,12 +112,12 @@ function showSongsByArtist(artist) {
     closeBtn.onclick = hideSongList;
     songListDiv.appendChild(closeBtn);
   } else {
-    // Jika sudah ada, pastikan tampil
     document.getElementById("closeSongListButton").style.display = "inline-block";
   }
 
   songListDiv.scrollIntoView({ behavior: "smooth", block: "start" });
 }
+
 
 
 
