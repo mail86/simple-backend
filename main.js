@@ -186,32 +186,52 @@ function globalSearch() {
   const searchBox = document.getElementById("searchBox");
   const keyword = searchBox.value.toLowerCase().trim();
   const songListDiv = document.getElementById("songList");
+  const closeBtn = document.getElementById("closeSongListButton");
 
-  if (!keyword) {
+  if (keyword === "") {
     songListDiv.innerHTML = "";
+    closeBtn.style.display = "none";
     return;
   }
 
   const results = [];
 
   for (const artist in songs) {
-    results.push(...songs[artist].filter(song =>
-      song.title.toLowerCase().startsWith(keyword)
-    ));
+    for (const song of songs[artist]) {
+      if (song.title.toLowerCase().includes(keyword)) {
+        results.push(song);
+      }
+    }
   }
+
+  songListDiv.innerHTML = "";
 
   if (results.length > 0) {
-    songListDiv.innerHTML = "<h3>Hasil Pencarian:</h3><ul>" +
-      results.map(song =>
-        `<li onclick="addToPlaylist('${song.title}', '${song.src}')">${song.title}</li>`
-      ).join("") +
-      "</ul>";
+    const header = document.createElement("h3");
+    header.textContent = "Hasil Pencarian:";
+    songListDiv.appendChild(header);
+
+    const ul = document.createElement("ul");
+    results.forEach((song) => {
+      const li = document.createElement("li");
+      li.innerText = song.title;
+      li.onclick = () => addToPlaylist(song.title, song.src);
+      ul.appendChild(li);
+    });
+    songListDiv.appendChild(ul);
+
+    closeBtn.style.display = "inline-block"; // Tampilkan tombol
+    songListDiv.scrollIntoView({ behavior: "smooth", block: "start" });
   } else {
-    songListDiv.innerHTML = "<p>🔍 Tidak ada lagu ditemukan.</p>";
+    songListDiv.innerHTML = "<p>Tidak ada lagu ditemukan.</p>";
+    closeBtn.style.display = "none"; // Sembunyikan jika tidak ada hasil
   }
 
-  songListDiv.scrollIntoView({ behavior: "smooth", block: "start" });
-  searchBox.value = "";
+  searchBox.value = ""; // Kosongkan pencarian
+}
+function hideSongList() {
+  document.getElementById("songList").innerHTML = "";
+  document.getElementById("closeSongListButton").style.display = "none";
 }
 
 // Event listeners
