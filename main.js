@@ -272,6 +272,16 @@ function hideSongList() {
   document.getElementById("songList").innerHTML = "";
   document.getElementById("closeSongListButton").style.display = "none";
 }
+function togglePlaylist() {
+  const container = document.getElementById("playlistContainer");
+  const button = document.getElementById("togglePlaylistButton");
+
+  container.classList.toggle("collapsed");
+  const isCollapsed = container.classList.contains("collapsed");
+  button.textContent = isCollapsed
+    ? "Tampilkan Antrian"
+    : "Sembunyikan Antrian";
+}
 
 // Event listeners
 audioPlayer.addEventListener("ended", playNext);
