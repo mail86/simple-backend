@@ -252,7 +252,7 @@ input[type="text"], li {
   
   body.dark-mode .close-songlist-btn {
     background-color: #228be6;
-    color: red;
+    color: white;
   }
   
   body.dark-mode .close-songlist-btn:hover {
