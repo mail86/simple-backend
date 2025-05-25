@@ -239,7 +239,7 @@ input[type="text"], li {
     font-size: 14px;
     border: none;
     border-radius: 8px;
-    background-color: #1864ab;
+    background-color: #228be6;
     color: white;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -251,7 +251,7 @@ input[type="text"], li {
   }
   
   body.dark-mode .close-songlist-btn {
-    background-color: white;
+    background-color: #228be6;
     color: red;
   }
   
