@@ -258,6 +258,31 @@ input[type="text"], li {
   body.dark-mode .close-songlist-btn:hover {
     background-color: greenyellow;
   }
+ #playlistContainer {
+    max-height: 300px;
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
+  }
+  
+  #playlistContainer.collapsed {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+  
+  #togglePlaylistButton {
+    margin-top: 5px;
+    background-color:#228be6 ;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  #togglePlaylistButton:hover {
+    background-color: aqua;
+  } 
+  
   
   
 
