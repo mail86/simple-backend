@@ -67,9 +67,23 @@ const songs = {
     { title: "Runtah", src: "sunda/Runtah.mp3" },
     { title: "Teteh", src: "sunda/Teteh.mp3" },
   ],
+  hijabrap: [
+    { title: "Elang pemangsa", src: "hijab rap/elang pemangsa.mp3" },
+    { title: "Feodalisme Politik", src: "hijab rap/feodalisme politik.mp3" },
+    { title: "Harga Mati", src: "hijab rap/Harga Mati.mp3" },
+    { title: "Jabatan", src: "hijab rap/Hijab Rap.mp3" },
+    { title: "Hukum Koruptor", src: "hijab rap/hukum koruptor.mp3" },
+    { title: "Tangis ibu pertiwi", src: "hijab rap/tangis ibu pertiwi.mp3" },
+    { title: "visi misi", src: "hijab rap/visi misi.mp3" },
+    { title: "WE wok de tok", src: "hijab rap/we wok de tok.mp3" },
+  ],
   Campuran: [
     { title: "Ilusi Tak Bertepi", src: "Musik/ilusi Tak Bertepi.mp3" },
     { title: "Suara", src: "Musik/Suara.mp3" },
+     { title: "Kesepian", src: "Campuran/Kesepian.mp3" },
+    { title: "pym", src: "Campuran/pym.mp3" },
+    { title: "", src: "Campuran/Sekecewa itu.mp3" },
+  ],
   ],
 };
 
