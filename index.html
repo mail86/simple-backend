@@ -46,11 +46,14 @@
       <button onclick="shufflePlaylist()">🔀 Shuffle</button>
       <button onclick="skipSong()">⏭️ Skip</button>
     </div>
+    
+<div id="playlistContainer" class="collapsed">
+  <h3>🎧 Antrian Lagu:</h3>
+  <ul id="playlistDisplay"></ul>
+</div>
+<button id="togglePlaylistButton" onclick="togglePlaylist()">Tampilkan Antrian</button>
 
-    <div class="playlist">
-      <h3>🎧 Antrian Lagu:</h3>
-      <ul id="playlistDisplay"></ul>
-    </div>
+   
 
    <audio id="audioPlayer" controls></audio>
  <div id="nowPlaying" class="marquee">🎵 Tidak ada lagu diputar</div>
