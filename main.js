@@ -84,7 +84,6 @@ const songs = {
      { title: "Kesepian", src: "Campuran/Kesepian.mp3" },
     { title: "", src: "Campuran/Sekecewa itu.mp3" },
   ],
-  ],
 };
 
 const playlist = [];
