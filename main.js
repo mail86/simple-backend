@@ -66,6 +66,7 @@ const songs = {
     { title: "Panyakit Hate", src: "sunda/panyakit hate.mp3" },
     { title: "Runtah", src: "sunda/Runtah.mp3" },
     { title: "Teteh", src: "sunda/Teteh.mp3" },
+     { title: "peuyeum bandung", src: "Campuran/pym.mp3" },
   ],
   hijabrap: [
     { title: "Elang pemangsa", src: "hijab rap/elang pemangsa.mp3" },
@@ -81,7 +82,6 @@ const songs = {
     { title: "Ilusi Tak Bertepi", src: "Musik/ilusi Tak Bertepi.mp3" },
     { title: "Suara", src: "Musik/Suara.mp3" },
      { title: "Kesepian", src: "Campuran/Kesepian.mp3" },
-    { title: "pym", src: "Campuran/pym.mp3" },
     { title: "", src: "Campuran/Sekecewa itu.mp3" },
   ],
   ],
