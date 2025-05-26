@@ -82,7 +82,7 @@ const songs = {
     { title: "Ilusi Tak Bertepi", src: "Musik/ilusi Tak Bertepi.mp3" },
     { title: "Suara", src: "Musik/Suara.mp3" },
      { title: "Kesepian", src: "Campuran/Kesepian.mp3" },
-    { title: "", src: "Campuran/Sekecewa itu.mp3" },
+    { title: "Sekecewa itu", src: "Campuran/Sekecewa itu.mp3" },
   ],
 };
 
