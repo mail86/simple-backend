@@ -100,7 +100,7 @@ const songs = {
     { title: "Ku Tak Akan Bersuara", src: "Malaysia/Ku Tak Akan Bersuara.mp3" },
     { title: "Mama Aku Ingin Pulang", src: "Malaysia/Mama Aku Ingin Pulang.mp3" },
     { title: "Mencari Alasan", src: "Malaysia/Mencari Alasan.mp3" },
-    { title: "Panggung Sandiwara", src: "Malaysia/Panggung Sandiwara.mp3 },
+    { title: "Panggung Sandiwara", src: "Malaysia/Panggung Sandiwara.mp3" },
     { title: "Sandiwara Cinta", src: "Malaysia/Sandiwara Cinta.mp3" },
     { title: "Satu nama Tetap Di Hati", src: "Malaysia/Satu nama Tetap Di Hati.mp3" },
     { title: "Satu Persinggahan", src: "Malaysia/Satu Persinggahan.mp3" },
