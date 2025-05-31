@@ -120,6 +120,16 @@ const songs = {
     { title: "Getir", src: "Campuran/Getir.mp3" },
     { title: "Kesepian Kita", src: "Campuran/Kesepian Kita.mp3 " },
     { title: "Kumerindu", src: "Campuran/Kumerindu.mp3" },
+    { title: "Antara Ada Dan Tiada", src: "Campuran/Antara Ada Dan Tiada" },
+    { title: "Baby Doll", src: "Campuran/Baby Doll" },
+    { title: "Berharap Kau Kembali", src: "Campuran/Berharap Kau Kembali" },
+    { title: "Kau Curi Lagi", src: "campuran/Kau Curi Lagi" },
+    { title: "Mencintaimu sampai Mati", src: "Campuran/Mencintaimu sampai Mati" },
+    { title: "Pelan-Pelan Saja", src: "Campuran/pelan-pelan Saja" },
+    { title: "Serpihan Hati", src: "Campuran/" },
+    { title: "Benci", src: "Campuran/Benci" },
+    { title: "", src: "Campuran/" },
+    { title: "", src: "Campuran/" },
   ],
 };
 
