@@ -123,7 +123,7 @@ const songs = {
     { title: "Antara Ada Dan Tiada", src: "Campuran/Antara Ada Dan Tiada.mp3" },
     { title: "Baby Doll", src: "Campuran/Baby Doll.mp3" },
     { title: "Berharap Kau Kembali", src: "Campuran/Berharap Kau Kembali.mp3" },
-    { title: "Kau Curi Lagi", src: "campuran/Kau Curi Lagi.mp3" },
+    { title: "Kau Curi Lagi", src: "Campuran/Kau Curi Lagi.mp3" },
     { title: "Mencintamu Sampai Mati", src: "Campuran/Mencintamu Sampai Mati.mp3" },
     { title: "Pelan-Pelan Saja", src: "Campuran/Pelan-Pelan Saja.mp3" },
     { title: "Serpihan Hati", src: "Campuran/Serpihan Hati.mp3" },
