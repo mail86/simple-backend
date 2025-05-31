@@ -117,6 +117,9 @@ const songs = {
     { title: "Mengapa Kau Berubah", src: "Campuran/Mengapa Kau Berubah.mp3" },
     { title: "Ada Yang Hilang", src: "Campuran/Ada Yang Hilang.mp3" },
     { title: "Bete", src: "Campuran/Bete.mp3" },
+    { title: "Getir", src: "Campuran/Getir.mp3" },
+    { title: "Kesepian Kita", src: "Campuran/Kesepian Kita.mp3 " },
+    { title: "Kumerindu", src: "Campuran/Kumerindu.mp3" },
   ],
 };
 
