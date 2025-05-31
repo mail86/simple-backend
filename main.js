@@ -128,8 +128,7 @@ const songs = {
     { title: "Pelan-Pelan Saja", src: "Campuran/pelan-pelan Saja" },
     { title: "Serpihan Hati", src: "Campuran/Serpihan Hati" },
     { title: "Benci", src: "Campuran/Benci" },
-   
-  ],
+ ],
 };
 
 const playlist = [];
