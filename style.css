@@ -94,6 +94,15 @@ body.dark-mode input[type="text"] {
   color: #fff;
   border: 1px solid #666;
 }
+.artist-list li {
+  cursor: pointer;
+  padding: 8px;
+  transition: background 0.3s;
+}
+.artist-list li:hover {
+  background-color: greenyellow;
+}
+
 
 ul {
   list-style: none;
