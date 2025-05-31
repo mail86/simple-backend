@@ -126,7 +126,7 @@ const songs = {
     { title: "Kau Curi Lagi", src: "campuran/Kau Curi Lagi" },
     { title: "Mencintaimu sampai Mati", src: "Campuran/Mencintaimu sampai Mati" },
     { title: "Pelan-Pelan Saja", src: "Campuran/pelan-pelan Saja" },
-    { title: "Serpihan Hati", src: "Campuran/" },
+    { title: "Serpihan Hati", src: "Campuran/Serpihan Hati" },
     { title: "Benci", src: "Campuran/Benci" },
    
   ],
